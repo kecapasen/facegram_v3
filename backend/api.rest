@@ -1,0 +1,69 @@
+POST http://127.0.0.1:8000/api/v1/auth/register
+Accept: "application/json"
+Content-Type: "application/json"
+
+{
+  "fullname": "Mr Ius",
+  "bio": "-",
+  "username": "anonymous",
+  "password": "Karawang",
+  "is_private": true
+}
+
+###
+POST http://127.0.0.1:8000/api/v1/auth/login
+Accept: "application/json"
+Content-Type: "application/json"
+
+{
+  "username": "anonymous",
+  "password": "Karawang"
+}
+
+###
+DELETE http://127.0.0.1:8000/api/v1/auth/logout
+Accept: "application/json"
+Content-Type: "application/json"
+Authorization: Bearer 2|eSR1UB4YMMJfQ53dTxcczacqCpGkUe0NraVbh1BZ390a0d8d
+
+###
+POST http://127.0.0.1:8000/api/v1/users/anonymous/follow
+Accept: "application/json"
+Content-Type: "application/json"
+Authorization: Bearer 2|eSR1UB4YMMJfQ53dTxcczacqCpGkUe0NraVbh1BZ390a0d8d
+
+###
+DELETE http://127.0.0.1:8000/api/v1/users/anonymous/unfollow
+Accept: "application/json"
+Content-Type: "application/json"
+Authorization: Bearer 2|eSR1UB4YMMJfQ53dTxcczacqCpGkUe0NraVbh1BZ390a0d8d
+
+###
+GET http://127.0.0.1:8000/api/v1/users/following
+Accept: "application/json"
+Content-Type: "application/json"
+Authorization: Bearer 2|eSR1UB4YMMJfQ53dTxcczacqCpGkUe0NraVbh1BZ390a0d8d
+
+###
+PUT http://127.0.0.1:8000/api/v1/users/rizkymfrz/accept
+Accept: "application/json"
+Content-Type: "application/json"
+Authorization: Bearer 6|j3kNfW7l0cdHqs0eRsIPtaoAp7WqsPgZBXS7cg0i140bf941
+
+###
+GET http://127.0.0.1:8000/api/v1/users/anonymous/followers
+Accept: "application/json"
+Content-Type: "application/json"
+Authorization: Bearer 6|j3kNfW7l0cdHqs0eRsIPtaoAp7WqsPgZBXS7cg0i140bf941
+
+###
+GET http://127.0.0.1:8000/api/v1/users
+Accept: "application/json"
+Content-Type: "application/json"
+Authorization: Bearer 2|eSR1UB4YMMJfQ53dTxcczacqCpGkUe0NraVbh1BZ390a0d8d
+
+###
+GET http://127.0.0.1:8000/api/v1/users/anonymous
+Accept: "application/json"
+Content-Type: "application/json"
+Authorization: Bearer 2|eSR1UB4YMMJfQ53dTxcczacqCpGkUe0NraVbh1BZ390a0d8d
