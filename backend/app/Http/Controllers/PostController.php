@@ -20,23 +20,22 @@ class PostController extends Controller
 {
     $request->validate([
         'caption' => 'required|string|max:255',
-        'images.*' => 'required|image|mimes:jpg,jpeg,png,webp,gif',
+        'attachments.*' => 'required|image|mimes:jpg,jpeg,png,webp,gif',
     ]);
 
     $user = User::where('username', $request->user()->username)->firstOrFail();
-
-    $imageUrl = collect($request->file('images'))->map(function ($file) use ($user) {
-        $path = $file->store("posts/{$user->username}", 'public');
+    $file = $request->file('attachments');
+    $file = is_array($file) ? $file : [$file];
+    $imageUrl = collect($file)->map(function ($file) {
+        $path = $file->store('posts', 'public');
         return Storage::url($path);
-    });
-
-    $post = $user->posts()->create([
+    });  
+    $post = $user->post()->create([
         'caption' => $request->caption,
     ]);
-
-    $attachment = $imageUrl->map(fn ($url) => [
-        'url' => $url,
-        'post_id' => $post->id,
+    $attachment = $imageUrl->map(fn ($storage_path) => [
+        'storage_path' => $storage_path,
+        'post_id' => $post->id
     ]);
 
     PostAttachment::insert($attachment->toArray());

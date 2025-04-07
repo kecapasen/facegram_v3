@@ -63,7 +63,7 @@ Content-Type: "application/json"
 Authorization: Bearer 2|eSR1UB4YMMJfQ53dTxcczacqCpGkUe0NraVbh1BZ390a0d8d
 
 ###
-GET http://127.0.0.1:8000/api/v1/users/anonymous
+GET http://127.0.0.1:8000/api/v1/users/rizkymfrz
 Accept: "application/json"
 Content-Type: "application/json"
 Authorization: Bearer 2|eSR1UB4YMMJfQ53dTxcczacqCpGkUe0NraVbh1BZ390a0d8d
